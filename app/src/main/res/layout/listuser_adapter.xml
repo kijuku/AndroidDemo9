@@ -23,21 +23,21 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/studentName"
+                android:id="@+id/viewStudentName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Nimi" />
 
             <TextView
-                android:id="@+id/lineOfStudy"
+                android:id="@+id/viewLineOfStudy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Suuntautumisvaihtoehto" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/viewStudentEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
