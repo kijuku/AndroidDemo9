@@ -58,4 +58,15 @@ public class User {
     public void setImageId(int imageId) {
         this.imageId = imageId;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", degreeProgram='" + degreeProgram + '\'' +
+                ", imageId=" + imageId +
+                '}';
+    }
 }
