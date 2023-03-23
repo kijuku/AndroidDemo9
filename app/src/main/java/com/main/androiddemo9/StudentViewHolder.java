@@ -1,16 +1,13 @@
 package com.main.androiddemo9;
 
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class StudentViewHolder {
+public class StudentViewHolder extends RecyclerView.ViewHolder {
     ImageView imageView;
     TextView studentName, studentEmail, studentLinOfStudy;
-
-    public StudentViewHolder() {
-        super();
-    }
 
     public StudentViewHolder(View itemView){
         super(itemView);
