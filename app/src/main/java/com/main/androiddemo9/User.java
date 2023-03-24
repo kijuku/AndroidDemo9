@@ -13,6 +13,7 @@ public class User {
         this.lastName = lastName;
         this.email = email;
         this.degreeProgram = degreeProgram;
+        this.imageId = R.drawable.ic_launcher_background;
     }
 
     public User() {

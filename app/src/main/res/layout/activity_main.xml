@@ -95,13 +95,13 @@
         android:id="@+id/buttonAddUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         android:onClick="addNewUserToStorage"
         android:text="Lisää käyttäjä"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/imageSpinner" />
 
     <Button
         android:id="@+id/btnBack"
@@ -112,6 +112,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_info" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonAddUser"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Spinner
+        android:id="@+id/imageSpinner"
+        android:layout_width="267dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="36dp"
+        android:dropDownWidth="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
 </android.support.constraint.ConstraintLayout>

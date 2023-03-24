@@ -6,11 +6,26 @@ import android.os.Bundle;
 import android.view.View;
 
 public class MainActivity0 extends AppCompatActivity {
-
+    private UserStorage users;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main0);
+
+        // Luodaan käyttäjäsäilö.
+        users = UserStorage.getInstance();
+        for (int i = 0; i < 5; i++) {
+            String sbname = new String("Kimmo" + i);
+            String sbemail = new String("Kimmo" + i + ".Kulmala@gmail.com");
+
+            User user = new User(sbname, "Kulmala", sbemail, "Tietotekniikka");
+            users.addUser(user);
+        }
+
+        for (User u : users.getUsers()) {
+            System.out.println(u);
+        }
+
     }
 
     public void switchAddUserActivity(View view){

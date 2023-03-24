@@ -3,7 +3,7 @@ package com.main.androiddemo9;
 import java.util.ArrayList;
 
 public class UserStorage extends User {
-    private ArrayList<User> users = new ArrayList<>();
+    private static ArrayList<User> users = new ArrayList<>();
     private static UserStorage userstorage = null;
 
     private UserStorage(){

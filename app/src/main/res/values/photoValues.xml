@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="photoValues">
+        <item>Photo1</item>
+        <item>Photo2</item>
+        <item>Photo3</item>
+        <item>Photo4</item>
+        <item>Photo5</item>
+    </string-array>
+</resources>
