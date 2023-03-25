@@ -1,13 +1,14 @@
 package com.main.androiddemo9;
 
 
-
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -17,12 +18,14 @@ public class MainActivity extends AppCompatActivity implements
     private TextView tv_firstName;
     private TextView tv_lastName;
     private TextView tv_email;
+    private ImageView imageView;
     private RadioGroup rg_LineOfStydy;
 
     private Spinner spinner;
 
     private UserStorage users;
-    private String[] photos = { "photo1", "photo2", "photo3", "photo4", "photo5"};
+
+    private String[] photos = { "Valitse kuva...","photo1", "photo2", "photo3", "photo4", "photo5" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements
         aadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(aadapter);
 
+        imageView = findViewById(R.id.imageViewSelected);
         tv_firstName = findViewById(R.id.viewFirstName);
         tv_lastName = findViewById(R.id.viewLastName);
         tv_email = findViewById(R.id.viewEmail);
@@ -51,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements
         StringBuilder sb = new StringBuilder();
         String fName, lName, email;
         String lineOfStudy = "";
-        int spinnerId;
+
 
         if (!tv_firstName.getText().toString().isEmpty() && !tv_lastName.getText().toString().isEmpty() && !tv_email.getText().toString().isEmpty()){
             fName = tv_firstName.getText().toString();
@@ -73,11 +77,21 @@ public class MainActivity extends AppCompatActivity implements
             }
             //spinnerId = spinner.getId();
             String spinnerText = spinner.getSelectedItem().toString();
-            System.out.println(spinnerText);
+            System.out.println("Kuvan nimi: " + spinnerText);
+            imageView.setImageResource(selectImageId(spinnerText));
+            // Lisätään käyttäjä
             User newUser = new User(fName, lName,email,lineOfStudy);
+
+            // Asetetaan kuva newUserille
             newUser.setImageId(selectImageId(spinnerText));
+
+            // Lisätään käyttäjä newUser Arraylistiin
             users.addUser(newUser);
+
+            System.out.println("Lisätty käyttäjä:");
             System.out.println(newUser);
+            System.out.println("UserStoragen käyttäjät:");
+            System.out.println("=======================");
             for (User u : users.getUsers()){
                 System.out.println(u.toString());
             }
@@ -115,7 +129,11 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String spinnerText = spinner.getSelectedItem().toString();
+        System.out.println("Päivitettävän kuvan nimi: " + spinnerText);
+        imageView.setImageResource(selectImageId(spinnerText));
 
+        // new AlertDialog.Builder(this).setTitle("Kuva valinta:").setMessage("Et valinnut kuvaa!").setNeutralButton("Close", null).show();
     }
 
     @Override

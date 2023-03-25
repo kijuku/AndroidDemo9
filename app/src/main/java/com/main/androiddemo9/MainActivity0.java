@@ -15,6 +15,13 @@ public class MainActivity0 extends AppCompatActivity {
         // Luodaan käyttäjäsäilö.
         users = UserStorage.getInstance();
 
+        System.out.println("UserStoragen sisältö:");
+        System.out.println("=====================");
+
+        for (User u : users.getUsers()) {
+            System.out.println(u);
+        }
+        System.out.println("");
 
     }
     public void generateUsers(){
