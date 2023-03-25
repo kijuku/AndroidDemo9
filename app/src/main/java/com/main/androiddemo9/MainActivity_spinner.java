@@ -11,21 +11,21 @@ import android.widget.Spinner;
 public class MainActivity_spinner extends AppCompatActivity implements
         AdapterView.OnItemSelectedListener {
 
-        String[] country = { "India", "USA", "China", "Japan", "Other"};
+        private String[] photos = { "photo1", "photo2", "photo3", "photo4", "photo5"};
         @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_spinner);
 
         //Getting the instance of Spinner and applying OnItemSelectedListener on it
-        Spinner spin = (Spinner) findViewById(R.id.spinner);
-        spin.setOnItemSelectedListener(this);
+        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        spinner.setOnItemSelectedListener(this);
 
         //Creating the ArrayAdapter instance having the country list
-        ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,country);
+        ArrayAdapter aa = new ArrayAdapter(this, android.R.layout.simple_spinner_item, photos);
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         //Setting the ArrayAdapter data on the Spinner
-        spin.setAdapter(aa);
+        spinner.setAdapter(aa);
     }
 
     //Performing action onItemSelected and onNothing selected

@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements
                     lineOfStudy += "Sähkötekniikka";
                     break;
             }
-            spinnerId = spinner.getId();
+            //spinnerId = spinner.getId();
             String spinnerText = spinner.getSelectedItem().toString();
             System.out.println(spinnerText);
             User newUser = new User(fName, lName,email,lineOfStudy);

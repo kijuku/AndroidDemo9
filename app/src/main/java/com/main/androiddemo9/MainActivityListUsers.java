@@ -22,6 +22,10 @@ public class MainActivityListUsers extends AppCompatActivity {
 
     }
 
+    public void switchImageAddActivity(View view){
+        Intent intent = new Intent(this, MainActivity_spinner.class );
+        startActivity(intent);
+    }
     public void switchMainActivity(View view){
         Intent intent = new Intent(this, MainActivity0.class );
         startActivity(intent);

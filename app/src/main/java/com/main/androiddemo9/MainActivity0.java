@@ -14,6 +14,10 @@ public class MainActivity0 extends AppCompatActivity {
 
         // Luodaan käyttäjäsäilö.
         users = UserStorage.getInstance();
+
+
+    }
+    public void generateUsers(){
         for (int i = 0; i < 5; i++) {
             String sbname = new String("Kimmo" + i);
             String sbemail = new String("Kimmo" + i + ".Kulmala@gmail.com");
@@ -25,7 +29,6 @@ public class MainActivity0 extends AppCompatActivity {
         for (User u : users.getUsers()) {
             System.out.println(u);
         }
-
     }
 
     public void switchAddUserActivity(View view){
