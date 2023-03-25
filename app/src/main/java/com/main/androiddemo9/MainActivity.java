@@ -6,12 +6,14 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements
+        AdapterView.OnItemSelectedListener {
     private TextView tv_firstName;
     private TextView tv_lastName;
     private TextView tv_email;
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private Spinner spinner;
 
     private UserStorage users;
+    private String[] photos = { "photo1", "photo2", "photo3", "photo4", "photo5"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +32,14 @@ public class MainActivity extends AppCompatActivity {
 
         // Luodaan käyttäjäsäilö.
         users = UserStorage.getInstance();
+
         spinner = (Spinner) findViewById(R.id.imageSpinner);
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.photoValues, R.layout.activity_main);
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(R.layout.activity_main);
+        spinner.setOnItemSelectedListener(this);
+        ArrayAdapter aadapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item,photos);
+
+        aadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(aadapter);
+
         tv_firstName = findViewById(R.id.viewFirstName);
         tv_lastName = findViewById(R.id.viewLastName);
         tv_email = findViewById(R.id.viewEmail);
@@ -67,8 +72,10 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
             spinnerId = spinner.getId();
+            String spinnerText = spinner.getSelectedItem().toString();
+            System.out.println(spinnerText);
             User newUser = new User(fName, lName,email,lineOfStudy);
-            newUser.setImageId(spinnerId);
+            newUser.setImageId(selectImageId(spinnerText));
             users.addUser(newUser);
             System.out.println(newUser);
             for (User u : users.getUsers()){
@@ -78,8 +85,41 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+    public int selectImageId(String spinnerText){
+        int ret = 0;
+        switch (spinnerText){
+            case "photo1":
+                ret = R.drawable.photo1;
+                break;
+            case "photo2":
+                ret = R.drawable.photo2;
+                break;
+            case "photo3":
+                ret = R.drawable.photo3;
+                break;
+            case "photo4":
+                ret = R.drawable.photo4;
+                break;
+            case "photo5":
+                ret = R.drawable.photo5;
+                break;
+            default:
+                break;
+        }
+        return ret;
+    }
     public void switchMainActivity(View view){
         Intent intent = new Intent(this, MainActivity0.class );
         startActivity(intent);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }

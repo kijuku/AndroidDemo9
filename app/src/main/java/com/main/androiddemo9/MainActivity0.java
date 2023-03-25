@@ -38,12 +38,12 @@ public class MainActivity0 extends AppCompatActivity {
     }
 
     public void switchImageAddActivity(View view){
-        Intent intent = new Intent(this, MainActivityListUsers.class );
+        Intent intent = new Intent(this, MainActivity_spinner.class );
         startActivity(intent);
     }
 
     public void switchDeleteUserActivity(View view){
-        Intent intent = new Intent(this, MainActivityListUsers.class );
+        Intent intent = new Intent(this, MainActivity_spinner.class );
         startActivity(intent);
     }
 }
